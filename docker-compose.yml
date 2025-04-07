@@ -16,17 +16,20 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/mydatabase
+      - MONGO_URL=mongodb://mongo:27017/cacheme
     depends_on:
       - mongo
 
   frontend:
+    image: nginx:latest
     build:
       context: ./frontend
     ports:
       - "5173:5173"
     volumes:
       - ./frontend:/app
+      - ./nginx_cache:/data/nginx/cache 
+      - ./nginx_cache:/data/nginx/cache:rw  # Ensure read-write access
     depends_on:
       - backend
   

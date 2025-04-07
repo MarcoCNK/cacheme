@@ -16,7 +16,7 @@ export function LoginPage({ className, ...props }: React.ComponentPropsWithoutRe
 
     const form_state = {
       password: formValues.get("password"),
-      email: formValues.get("email")
+      name: formValues.get("name")
     }
     console.log(form_state)
     try {
@@ -49,14 +49,14 @@ export function LoginPage({ className, ...props }: React.ComponentPropsWithoutRe
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+          <CardDescription>Enter your name below to login to your account</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleRegister} >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" name="email" placeholder="m@example.com" required />
+                <Label htmlFor="name">name</Label>
+                <Input id="name" type="name" name="name" placeholder="m@example.com" required />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">

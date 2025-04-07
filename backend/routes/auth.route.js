@@ -9,7 +9,7 @@ const authRouter = express.Router()
 authRouter.post('/login', loginController)
 authRouter.options('/login', cors(corsOptions))
 
-authRouter.get('/profile', authMiddleware(),  profileController)
+authRouter.get('/profile',  profileController)
 authRouter.options('/profile', cors(corsOptions))
 
 export default authRouter

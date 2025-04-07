@@ -14,9 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.disable('x-powered-by')
-app.disable('If-None-Match')
-
-
+app.disable('server')
 
 app.use('/api/auth', authRouter)
 

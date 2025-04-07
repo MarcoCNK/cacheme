@@ -6,16 +6,14 @@ const createUsers = async () => {
 
         const users = [
            {
-            name: "tyron",
-            email: "tyrongonzalez@gmail.com",
+            name: "hacker",
             password: "kali",
-            api_key: `${generateRandomString(16)}`
+            api_key: `${generateRandomString(16)-generateRandomString(16)}`
            },
            {
                 name: "pepe",
-                email: "pepe@gmail.com",
                 password: `${generateRandomString(10)}`,
-                api_key: `${generateRandomString(16)}`
+                api_key: `${generateRandomString(16)-generateRandomString(16)}`
            }
         ];
         

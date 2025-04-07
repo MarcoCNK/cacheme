@@ -7,14 +7,12 @@ import jwt from "jsonwebtoken"
 export const loginController = async (req, res, next) => {
     try {
         const loginSchema = Joi.object({
-            email: Joi.string().email().required(),
+            name: Joi.string().required(),
             password: Joi.string().min(8).required()
         })
         const { error, value } = loginSchema.validate(req.body)
 
-        const user = await UserRepository.getByMail({ email: value.email })
-
-        console.log("user:", user)
+        const user = await UserRepository.getByName({ name: value.name })
 
         if (!user) {
             const response = new ResponseBuilder()
@@ -48,7 +46,6 @@ export const loginController = async (req, res, next) => {
         const access_token = jwt.sign({
             user_id: user._id,
             name: user.name,
-            email: user.email,
             role: user.role
         },
         process.env.JWT_SECRET,
@@ -106,7 +103,7 @@ export const profileController = async (req, res, next) => {
         }
     })
 
-    const user = await UserRepository.getByMail({ email: userData.email })
+    const user = await UserRepository.getByName({ name: userData.name })
 
 
     const response = new ResponseBuilder()
